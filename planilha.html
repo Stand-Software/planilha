@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central Roleplay Planilha de Gastos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #282c34; /* Fundo escuro como a imagem da VPS */
+            color: #abb2bf; /* Texto claro */
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            background-color: #3b4048; /* Fundo um pouco mais claro para o conteúdo */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 25px;
+            width: 90%;
+            max-width: 800px;
+        }
+        h1 {
+            color: #61afef; /* Cor para o título */
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #5c6370;
+        }
+        .tab-button {
+            background-color: #4a505b;
+            color: #c678dd; /* Cor para os botões das abas */
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+            transition: background-color 0.3s, color 0.3s;
+            margin: 0 5px;
+        }
+        .tab-button.active {
+            background-color: #61afef; /* Cor do botão ativo */
+            color: #ffffff;
+        }
+        .tab-button:hover:not(.active) {
+            background-color: #5c6370;
+        }
+        .tab-content {
+            display: none;
+            padding: 15px;
+            border-radius: 0 0 8px 8px;
+            background-color: #3b4048;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background-color: #4a505b;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        li strong {
+            color: #98c379; /* Cor para os valores */
+        }
+        .detail-section h3 {
+            color: #e6c07b; /* Cor para títulos de detalhes */
+            margin-bottom: 10px;
+            border-bottom: 1px dashed #5c6370;
+            padding-bottom: 5px;
+        }
+        .detail-section p {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        .detail-section a {
+            color: #61afef;
+            text-decoration: none;
+        }
+        .detail-section a:hover {
+            text-decoration: underline;
+        }
+        .detail-section ul.benefits {
+            list-style: disc; /* Para listas de benefícios */
+            margin-left: 20px;
+            background-color: transparent; /* Remove o fundo dos itens da lista de benefícios */
+            padding: 0;
+        }
+        .detail-section ul.benefits li {
+            background-color: transparent; /* Remove o fundo dos itens da lista de benefícios */
+            margin-bottom: 5px;
+            padding: 0;
+            display: list-item; /* Volta para o display padrão de lista */
+        }
+        .total {
+            background-color: #4a505b;
+            color: #98c379;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: right;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        /* Estilo para "Em breve" */
+        .coming-soon {
+            color: #e06c75; /* Cor vermelha para "Em breve" */
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💖 Central Roleplay Planilha de Gastos 💖</h1>
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab(event, 'principal')">Principal</button>
+            <button class="tab-button" onclick="openTab(event, 'vps')">VPS</button>
+            <button class="tab-button" onclick="openTab(event, 'discord')">Discord Boosts</button>
+            <button class="tab-button" onclick="openTab(event, 'anticheat')">Anti-Cheat EQPG</button>
+            <button class="tab-button" onclick="openTab(event, 'script_musica')">Script Música</button>
+            <button class="tab-button" onclick="openTab(event, 'marketing')">Marketing</button>
+        </div>
+
+        <div id="principal" class="tab-content active">
+            <h2>Resumo dos Gastos</h2>
+            <ul>
+                <li>
+                    <span>VPS (Reishost)</span>
+                    <strong>R$ 92,80</strong>
+                </li>
+                <li>
+                    <span>Discord Boosts (GGMAX)</span>
+                    <strong>R$ 25,90</strong>
+                </li>
+                <li>
+                    <span>Anti-Cheat EQPG</span>
+                    <strong>R$ 100,00</strong>
+                </li>
+                <li>
+                    <span>Marketing</span>
+                    <strong>R$ 48,00</strong>
+                </li>
+                <li>
+                    <span>Script de Música no Jogo</span>
+                    <strong>R$ 60,00</strong>
+                </li>
+            </ul>
+            <div class="total">
+                <p>Total do Stred: <strong>R$ 294,70</strong></p>
+                <p>Total do Chris Souza Helper: <strong>R$ 32</strong></p>
+                <p>Total Mensal (Geral): <span id="total-gastos">Calculando...</span></p>
+            </div>
+        </div>
+
+        <div id="vps" class="tab-content">
+            <div class="detail-section">
+                <h3>Detalhes da VPS</h3>
+                <p><strong>Provedor:</strong> Reishost</p>
+                <p><strong>Localização:</strong> Brasil 🇧🇷</p>
+                <p><strong>Configuração:</strong></p>
+                <ul>
+                    <li>6GB de RAM</li>
+                    <li>4vCore</li>
+                    <li>3.4GHz Turbo</li>
+                    <li>60GB SSD</li>
+                    <li>100Mbit/s</li>
+                    <li>Tráfego Ilimitado</li>
+                </ul>
+                <p><strong>Preço:</strong> De <span style="text-decoration: line-through;">R$ 139,00</span> por <strong>R$ 92,80/mês</strong></p>
+                <p>Esta VPS é essencial para hospedar Nossa Cidade 💪, garantindo performance e conexão rápida!</p>
+            </div>
+        </div>
+
+        <div id="discord" class="tab-content">
+            <div class="detail-section">
+                <h3>Detalhes dos Impulsos do Discord</h3>
+                <p><strong>Item:</strong> 14 Impulsos de Servidor Discord (Boosts)</p>
+                <p><strong>Preço:</strong> R$ 25,90</p>
+                <p><strong>Onde comprar:</strong> <a href="https://ggmax.com.br/anuncio/impulsos-de-servidor-discord-1-3-meses-entrega-muito-rapida" target="_blank">GGMAX</a></p>
+                <p>Vamos colocar 14 boosts no servidor, o suficiente para desbloquear o Nível 3 do Discord, garantindo a tag de servidor e estilos de cargos aprimorados, além de muitos outros benefícios! 🚀</p>
+                <p><strong>Benefícios dos Impulsos (Nível 3 com 14 Boosts):</strong></p>
+                <ul class="benefits">
+                    <li>+50 de slots de Emoji (total de 250 emojis)</li>
+                    <li>Qualidade de áudio de 384 Kbps</li>
+                    <li>Qualidade de vídeo de 1080p 60fps</li>
+                    <li>Uploads de 100 MB para todos os membros</li>
+                    <li>Ícone de Servidor Animado</li>
+                    <li>Banner de Servidor personalizado</li>
+                    <li>Plano de fundo de Convite personalizado</li>
+                    <li>Um link de convite personalizado</li>
+                    <li>15 impulsos de bônus (totalizando 29 boosts)</li>
+                    <li>3 impulsos extras para seu servidor</li>
+                    <li>Distintivo de Servidor Impulsionado (Tag de Servidor)</li>
+                    <li>Estilo dos Cargos Aprimorados (Cores Personalizadas para Cargos)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="anticheat" class="tab-content">
+            <div class="detail-section">
+                <h3>Detalhes do Anti-Cheat EQPG</h3>
+                <p><strong>Provedor:</strong> EQPG Networks</p>
+                <p><strong>Preço:</strong> De <span style="text-decoration: line-through;">R$ 150,00</span> por <strong>R$ 100,00/mês</strong> (Plano de 30 dias com desconto)</p>
+                <p><strong>Onde encontrar:</strong> <a href="https://eqpgfivem.site/" target="_blank">EQPG FiveM Site</a></p>
+                <p>Este anti-cheat oferece uma proteção robusta para o seu servidor FiveM, combatendo diversos tipos de cheats e exploits.</p>
+                <p><strong>Benefícios e Proteções Incluídas:</strong></p>
+                <ul class="benefits">
+                    <li>Proteção contra Spawn de Vida</li>
+                    <li>Detecção de God Mode</li>
+                    <li>Bloqueio de Super Velocidade</li>
+                    <li>Prevenção de Player Flag</li>
+                    <li>Combate ao Fogo Hack</li>
+                    <li>Proteção contra Animação Player</li>
+                    <li>Bloqueio de Super Jump</li>
+                    <li>Detecção de Invisibilidade</li>
+                    <li>Prevenção de Rolamento Infinito</li>
+                    <li>Proteção contra Player Invencível</li>
+                    <li>Bloqueio de Player Fall</li>
+                    <li>Detecção de Solo Season</li>
+                    <li>Prevenção de Teleport</li>
+                    <li>Bloqueio de No Headshot</li>
+                    <li>Instalação Imediata</li>
+                    <li>Configuração Personalizada</li>
+                    <li>Atualizações Automáticas</li>
+                    <li>Suporte 24/7</li>
+                </ul>
+                <p>Manter o servidor seguro é fundamental para garantir uma experiência de jogo justa e divertida para todos! 🛡️</p>
+            </div>
+        </div>
+
+        <div id="script_musica" class="tab-content">
+            <div class="detail-section">
+                <h3>Detalhes do Script de Música no Jogo</h3>
+                <p><strong>Preço:</strong> R$ 60,00</p>
+                <p>Este script permite a reprodução de músicas para todos os jogadores no jogo, proporcionando uma experiência de áudio imersiva e divertida para a comunidade! 🎵</p>
+                <p>Confira a imagem do script: <a href="https://cdn.discordapp.com/attachments/1373167557342924901/1373167557682532352/nightfyv2.png?ex=6883bc31&is=68826ab1&hm=eba42c93e07025e057689cc5278926f97221536a65c1a8acdedcc5a7e74b91b5&" target="_blank">Nightfy V2</a></p>
+            </div>
+        </div>
+
+        <div id="marketing" class="tab-content">
+            <div class="detail-section">
+                <h3>Detalhes de Marketing</h3>
+                <p>Os gastos com marketing são divididos da seguinte forma:</p>
+                <ul>
+                    <li><strong>Stred:</strong> R$ 16,00 (para um mínimo de 4000 visualizações em vídeos do TikTok)</li>
+                    <li><strong>Chris Souza Helper:</strong> R$ 32,00 (correspondendo a 2 lives de R$16 cada, garantindo no mínimo 80 espectadores por uma hora cada)</li>
+                </ul>
+                <p>Totalizando <strong>R$ 48,00</strong> mensais em marketing, buscando expandir a nossa comunidade e alcance! 📈</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+
+            // Recalcula o total ao abrir a aba principal
+            if (tabName === 'principal') {
+                calculateTotal();
+            }
+        }
+
+        function calculateTotal() {
+            const vpsPrice = 92.80;
+            const discordBoostsPrice = 25.90;
+            const anticheatPrice = 100.00;
+            const marketingStredPrice = 16.00;
+            const marketingChrisPrice = 32.00;
+            const scriptMusicaPrice = 60.00;
+
+            let totalGeral = vpsPrice + discordBoostsPrice + anticheatPrice + marketingStredPrice + marketingChrisPrice + scriptMusicaPrice;
+            document.getElementById('total-gastos').textContent = `R$ ${totalGeral.toFixed(2).replace('.', ',')}`;
+        }
+
+        // Calcula o total inicial ao carregar a página
+        document.addEventListener('DOMContentLoaded', calculateTotal);
+    </script>
+</body>
+</html>

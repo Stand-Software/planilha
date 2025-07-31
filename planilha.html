@@ -7,15 +7,15 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #282c34; /* Fundo escuro como a imagem da VPS */
-            color: #abb2bf; /* Texto claro */
+            background-color: #282c34;
+            color: #abb2bf;
             margin: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
         .container {
-            background-color: #3b4048; /* Fundo um pouco mais claro para o conteúdo */
+            background-color: #3b4048;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             padding: 25px;
@@ -23,7 +23,7 @@
             max-width: 800px;
         }
         h1 {
-            color: #61afef; /* Cor para o título */
+            color: #61afef;
             text-align: center;
             margin-bottom: 25px;
         }
@@ -35,7 +35,7 @@
         }
         .tab-button {
             background-color: #4a505b;
-            color: #c678dd; /* Cor para os botões das abas */
+            color: #c678dd;
             border: none;
             padding: 12px 20px;
             cursor: pointer;
@@ -46,7 +46,7 @@
             margin: 0 5px;
         }
         .tab-button.active {
-            background-color: #61afef; /* Cor do botão ativo */
+            background-color: #61afef;
             color: #ffffff;
         }
         .tab-button:hover:not(.active) {
@@ -75,10 +75,10 @@
             align-items: center;
         }
         li strong {
-            color: #98c379; /* Cor para os valores */
+            color: #98c379;
         }
         .detail-section h3 {
-            color: #e6c07b; /* Cor para títulos de detalhes */
+            color: #e6c07b;
             margin-bottom: 10px;
             border-bottom: 1px dashed #5c6370;
             padding-bottom: 5px;
@@ -95,16 +95,16 @@
             text-decoration: underline;
         }
         .detail-section ul.benefits {
-            list-style: disc; /* Para listas de benefícios */
+            list-style: disc;
             margin-left: 20px;
-            background-color: transparent; /* Remove o fundo dos itens da lista de benefícios */
+            background-color: transparent;
             padding: 0;
         }
         .detail-section ul.benefits li {
-            background-color: transparent; /* Remove o fundo dos itens da lista de benefícios */
+            background-color: transparent;
             margin-bottom: 5px;
             padding: 0;
-            display: list-item; /* Volta para o display padrão de lista */
+            display: list-item;
         }
         .total {
             background-color: #4a505b;
@@ -117,9 +117,8 @@
             margin-top: 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        /* Estilo para "Em breve" */
         .coming-soon {
-            color: #e06c75; /* Cor vermelha para "Em breve" */
+            color: #e06c75;
             font-style: italic;
         }
     </style>
@@ -133,7 +132,7 @@
             <button class="tab-button" onclick="openTab(event, 'vps')">VPS</button>
             <button class="tab-button" onclick="openTab(event, 'discord')">Discord Boosts</button>
             <button class="tab-button" onclick="openTab(event, 'anticheat')">Anti-Cheat EQPG</button>
-            <button class="tab-button" onclick="openTab(event, 'script_musica')">Script Música</button>
+            <button class="tab-button" onclick="openTab(event, 'keyfivem')">Key FiveM</button>
             <button class="tab-button" onclick="openTab(event, 'marketing')">Marketing</button>
         </div>
 
@@ -153,16 +152,16 @@
                     <strong>R$ 100,00</strong>
                 </li>
                 <li>
+                    <span>Key FiveM</span>
+                    <strong>R$ 50,00</strong>
+                </li>
+                <li>
                     <span>Marketing</span>
                     <strong>R$ 48,00</strong>
                 </li>
-                <li>
-                    <span>Script de Música no Jogo</span>
-                    <strong>R$ 60,00</strong>
-                </li>
             </ul>
             <div class="total">
-                <p>Total do Stred: <strong>R$ 294,70</strong></p>
+                <p>Total do Stred: <strong>R$ 284,70</strong></p>
                 <p>Total do Chris Souza Helper: <strong>R$ 32</strong></p>
                 <p>Total Mensal (Geral): <span id="total-gastos">Calculando...</span></p>
             </div>
@@ -243,13 +242,17 @@
                 <p>Manter o servidor seguro é fundamental para garantir uma experiência de jogo justa e divertida para todos! 🛡️</p>
             </div>
         </div>
-
-        <div id="script_musica" class="tab-content">
+        
+        <div id="keyfivem" class="tab-content">
             <div class="detail-section">
-                <h3>Detalhes do Script de Música no Jogo</h3>
-                <p><strong>Preço:</strong> R$ 60,00</p>
-                <p>Este script permite a reprodução de músicas para todos os jogadores no jogo, proporcionando uma experiência de áudio imersiva e divertida para a comunidade! 🎵</p>
-                <p>Confira a imagem do script: <a href="https://cdn.discordapp.com/attachments/1373167557342924901/1373167557682532352/nightfyv2.png?ex=6883bc31&is=68826ab1&hm=eba42c93e07025e057689cc5278926f97221536a65c1a8acdedcc5a7e74b91b5&" target="_blank">Nightfy V2</a></p>
+                <h3>Detalhes da Key FiveM</h3>
+                <p><strong>Preço:</strong> <strong>R$ 50,00</strong></p>
+                <p><strong>Benefícios:</strong></p>
+                <ul class="benefits">
+                    <li>Use até 64 slots com OneSync.</li>
+                    <li>Transmita roupas personalizadas.</li>
+                    <li>Use ^1-^9 códigos de cores no nome do servidor.</li>
+                </ul>
             </div>
         </div>
 
@@ -258,10 +261,10 @@
                 <h3>Detalhes de Marketing</h3>
                 <p>Os gastos com marketing são divididos da seguinte forma:</p>
                 <ul>
-                    <li><strong>Stred:</strong> R$ 16,00 (para um mínimo de 4000 visualizações em vídeos do TikTok)</li>
+                    <li><strong>Stred:</strong> R$32,00 (para um mínimo de 4000 visualizações em dois vídeos do TikTok)</li>
                     <li><strong>Chris Souza Helper:</strong> R$ 32,00 (correspondendo a 2 lives de R$16 cada, garantindo no mínimo 80 espectadores por uma hora cada)</li>
                 </ul>
-                <p>Totalizando <strong>R$ 48,00</strong> mensais em marketing, buscando expandir a nossa comunidade e alcance! 📈</p>
+                <p>Totalizando <strong>R$ 64,00</strong> mensais em marketing, buscando expandir a nossa comunidade e alcance! 📈</p>
             </div>
         </div>
     </div>
@@ -280,7 +283,6 @@
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
 
-            // Recalcula o total ao abrir a aba principal
             if (tabName === 'principal') {
                 calculateTotal();
             }
@@ -290,15 +292,14 @@
             const vpsPrice = 92.80;
             const discordBoostsPrice = 25.90;
             const anticheatPrice = 100.00;
+            const keyFivemPrice = 50.00;
             const marketingStredPrice = 16.00;
             const marketingChrisPrice = 32.00;
-            const scriptMusicaPrice = 60.00;
 
-            let totalGeral = vpsPrice + discordBoostsPrice + anticheatPrice + marketingStredPrice + marketingChrisPrice + scriptMusicaPrice;
+            let totalGeral = vpsPrice + discordBoostsPrice + anticheatPrice + keyFivemPrice + marketingStredPrice + marketingChrisPrice;
             document.getElementById('total-gastos').textContent = `R$ ${totalGeral.toFixed(2).replace('.', ',')}`;
         }
 
-        // Calcula o total inicial ao carregar a página
         document.addEventListener('DOMContentLoaded', calculateTotal);
     </script>
 </body>
